@@ -9,7 +9,7 @@ Elasticsearch was used in this project as our search engine.
 - MySQL serves at localhost:3308
 - Elasticsearch serves at localhost:9200
 - Kibana serves at localhost:5601
-- Elasticsearch, Kibana and Spring Data Elasticsearch were used.
+- Docker, Elasticsearch, Kibana and Spring Data Elasticsearch were used.
 - Check below for details.
 
 ## 1) Set up environment
