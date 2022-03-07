@@ -6,6 +6,8 @@ Elasticsearch was used in this project as our search engine.
 
 - Made with Spring Framework.
 - Back-end serves at localhost:8080
+- MySQL serves at localhost:3308
+- Elasticsearch serves at localhost:9200
 - Kibana serves at localhost:5601
 - Elasticsearch, Kibana and Spring Data Elasticsearch were used.
 - Check below for details.
