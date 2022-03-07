@@ -1,0 +1,37 @@
+services:
+
+  mysql:
+    image: mysql
+    platform: linux/amd64   #-> FOR M1 (MAC) OPEN THIS LINE. FOR OTHERS CLOSE IT.
+    environment:
+      MYSQL_ROOT_PASSWORD: denzhntest
+      MYSQL_DATABASE: movies
+      MYSQL_USER: denzhn
+      MYSQL_PASSWORD: 12345
+    ports:
+      - "3308:3306"    #-> CHANGE LEFT SIDE PORT ACCORDING TO YOUR PC CONFIG.
+    volumes:
+      - movies-volume:/etc/mysql/conf.d
+
+  elasticsearch:
+    image: elasticsearch:7.10.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+
+  kibana:
+    image: kibana:7.10.1
+    platform: linux/amd64   #-> FOR M1 (MAC) OPEN THIS LINE. FOR OTHERS CLOSE IT.
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+
+volumes:
+  movies-volume:
